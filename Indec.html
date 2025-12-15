@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rivo Bagi Bagi Hadiah!</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Reset Dasar --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            padding-top: 70px; 
+            padding-bottom: 80px;
+        }
+
+        /* --- Navbar Atas --- */
+        .top-navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 1000;
+            border-bottom: 1px solid #222; 
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800; /* Teks Tebal */
+            letter-spacing: 0.5px;
+            color: #fff;
+        }
+
+        .top-icons i {
+            font-size: 1.2rem;
+            color: #fff;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        /* --- Konten --- */
+        .content {
+            padding: 20px;
+        }
+        
+        .card {
+            background-color: #111;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #222;
+        }
+        .card h2 { margin-bottom: 10px; font-size: 1.1rem;}
+        .card p { color: #aaa; font-size: 0.9rem; line-height: 1.5; }
+
+        /* --- Navbar Bawah --- */
+        .bottom-navbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            background-color: #0a0a0a;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1000;
+            border-top: 1px solid #222; 
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #666; /* Warna abu-abu saat tidak aktif */
+            transition: 0.3s;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .nav-item i {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            transition: transform 0.2s;
+        }
+
+        .nav-item span {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        /* Efek Aktif */
+        .nav-item.active {
+            color: #ffffff; 
+        }
+        /* Warna Khusus Icon Aktif */
+        .nav-item.active i {
+            color: #3b82f6; /* Biru standar */
+        }
+        
+        /* Khusus Membership iconnya jadi kuning emas saat aktif */
+        .nav-item:nth-child(3).active i {
+            color: #facc15; 
+        }
+        
+        /* Khusus Popular iconnya jadi merah oranye saat aktif */
+        .nav-item:nth-child(2).active i {
+            color: #fb923c; 
+        }
+
+        .nav-item:active i {
+            transform: scale(0.9);
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="top-navbar">
+        <div class="logo">RIVO.HADIAH</div>
+    </nav>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #181818; /* Warna background gelap */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: white;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px; /* Ukuran layar HP */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Bagian Foto Profil (PP) / Lingkaran Biru */
+        .pp-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(180deg, #daebff 0%, #aaccff 100%);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Ikon Kado di dalam PP */
+        .gift-icon {
+            font-size: 80px;
+            color: #2b6cb0; /* Biru tua modern */
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.2));
+        }
+
+        /* Stiker 2025 */
+        .badge-year {
+            position: absolute;
+            top: 0;
+            right: 10px;
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(45deg, #a18cd1, #fbc2eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            transform: rotate(15deg);
+            z-index: 10;
+        }
+        
+        /* Bintang kecil di dekat 2025 */
+        .badge-year::after {
+            content: '\f005'; /* Kode icon bintang */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            font-size: 14px;
+            top: -5px;
+            right: -5px;
+            color: #ffb6c1;
+            -webkit-text-fill-color: #ffb6c1;
+        }
+
+        /* Teks Judul */
+        .main-title {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        /* Kotak Abu-abu (Card) */
+        .info-card {
+            background-color: #2a2a2a;
+            width: 100%;
+            padding: 25px 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        /* Tombol Putih */
+        .action-btn {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            border-radius: 50px; /* Membuat tombol lonjong/pill */
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .action-btn:hover {
+            transform: scale(1.02); /* Efek membesar dikit saat disentuh */
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .action-btn:active {
+            transform: scale(0.98);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="pp-container">
+            <div class="badge-year">2025</div>
+            <i class="fa-solid fa-gift gift-icon"></i>
+        </div>
+
+        <div class="main-title">HADIAH SPESIAL</div>
+
+        <div class="info-card">
+            <div class="subtitle">Siapa Cepat Dia Dapat</div>
+            
+            <button class="action-btn" onclick="alert('Ih Kamu Gak sabaran ! wkwkwk')">
+                Klik Saat Tanggal 25 Desember 2025
+            </button>
+            
+                    <div class="info-card">
+            <div class="subtitle">Dapatkan Rivo Premium Gratis Dari Admin Spesial 12.12 Jadi jangan ketinggalan untuk dapat Rivo Premium Gratis!!</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
+    <nav class="bottom-navbar">
+        <a href="#" class="nav-item active">
+            <i class="fa-solid fa-house"></i>
+            <span>Box Hadiah Rivo Spesial Desember!</span>
+        </a>
+    </nav>
+
+</body>
+</html>
